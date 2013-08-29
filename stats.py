@@ -1,3 +1,4 @@
+#now this file is a little different
 def mean(vals):
     """Computes the mean from a list of values."""
     try:
@@ -28,7 +29,16 @@ def std(vals):
 
 def var(vals):
     """Computes the variance from a list of values."""
-    pass
+    n = len(vals)
+    if n == 0:
+        return 0.0
+    mu = sum(vals) / n
+    if mu == 1e500:
+        return NotImplemented
+    var = 0.0
+    for val in vals:
+        var = var + (val - mu)**2
+    return var
 
 def median(numlist):
     numlist.sort()
