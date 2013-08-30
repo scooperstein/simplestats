@@ -8,11 +8,7 @@ def mean(vals):
         raise TypeError("The list was not numbers.")
     except:
         print "Something unknown happened with the list."
-    return total/length
-
-def median(vals):
-    """Computes the median from a list of values."""
-    pass
+    return float(total)/length
 
 def mode(vals):
     """Computes the mode from a list of values."""
@@ -44,3 +40,11 @@ def var(vals):
         var = var + (val - mu)**2
     return var
 
+def median(numlist):
+    numlist.sort()
+    length = len(numlist)
+    index = length/2
+    if length % 2 == 0:
+       return mean([numlist[index], numlist[index - 1]])
+    else:
+       return numlist[index]
